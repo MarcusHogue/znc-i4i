@@ -36,7 +36,7 @@ class i4i(znc.Module):
         channel = channel.GetName()
         nick = nick.GetNick()
         msg = str(message)
-        if ('.insult' in msg or '.slap' in msg or '.trump' in msg or '.clinton' in msg or '.yomamma' in msg) and own_nick in msg:
+        if ('.insult' in msg or '.slap' in msg or '.trump' in msg or '.clinton' in msg or '.yomamma' in msg or '.penis' in msg) and own_nick in msg:
             response = random.choice(self.responses)
             self.PutModule("Triggered when {0} said {1} on {2}".format(nick, msg, channel))
             self.GetNetwork().PutIRC("PRIVMSG {0} :{1} {2}".format(channel, response, nick))
