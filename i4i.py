@@ -23,8 +23,9 @@ class i4i(znc.Module):
     description = "Gonzobot insult autoresponder for ZNC"
     module_types = [znc.CModInfo.NetworkModule]
     responses = [
-        '.insult','.slap','.yomomma'
-#        .trump .clinton
+        '.insult','.slap','.yomomma','.flip','.glomp','.fight', # naughty
+        '.sandwich','.beer','.coffee','.taco','.nugget','.drink','.noodles' # nice
+#        '.trump', '.clinton ' # stupid
     ]
 
     def OnLoad(self, args, message):
@@ -36,7 +37,7 @@ class i4i(znc.Module):
         channel = channel.GetName()
         nick = nick.GetNick()
         msg = str(message)
-        if ('.insult' in msg or '.slap' in msg or '.trump' in msg or '.clinton' in msg or '.yomomma' in msg or '.penis' in msg) and own_nick in msg:
+        if ('.glomp' in msg or '.flip' in msg or '.insult' in msg or '.slap' in msg or '.trump' in msg or '.clinton' in msg or '.yomomma' in msg or '.penis' in msg) and own_nick in msg:
             response = random.choice(self.responses)
             self.PutModule("Triggered when {0} said {1} on {2}".format(nick, msg, channel))
             self.GetNetwork().PutIRC("PRIVMSG {0} :{1} {2}".format(channel, response, nick))
